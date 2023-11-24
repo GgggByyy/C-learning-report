@@ -1,0 +1,22 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include <stdio.h>
+int main()
+{
+	int l, r;
+	char arr1[] = "hello world!!!!!!!";
+	char arr2[] = "                  ";
+	l = 0;
+	r = strlen(arr1) - 1;
+	while (l < r)
+	{
+		arr2[l] = arr1[l];
+		arr2[r] = arr1[r];
+		printf("%s", arr2);
+		Sleep(150);
+		system("cls");
+		l = l + 1;
+		r = r - 1;
+	}
+	printf("%s", arr2);
+	return 0;
+}
