@@ -1,1 +1,36 @@
-# C-learning-report
+#define _CRT_SECURE_NO_WARNINGS 1
+#include <stdio.h>
+int main()
+{
+	int arr[] = { 1,2,3,4,5,6,6,7,7,8,9,10,11,12,13,14,15,16,17,18,19,20 };
+	int k;
+	printf("请输入要查找的数字：");
+	scanf("%d", &k);
+	int n = sizeof(arr) / sizeof(arr[0]);
+	int l = 0;
+	int r = n - 1;
+	while (l<=r)
+	{
+		if (k < arr[(l + r) / 2] && k >= arr[0])
+		{
+			r = (l + r) / 2 - 1;
+		}
+		else if (k > arr[(l + r) / 2] && k <= arr[n - 1])
+		{
+			l = (l + r) / 2 + 1;
+		}
+		else if (k == arr[(l + r) / 2])
+		{
+			printf("%d下标为：%d\n", k, (l + r) / 2);
+			break;
+		}
+		else
+		{
+			printf("找不到输入数字，可能所查找的数组中没有此数。\n");
+			break;
+		}
+	}
+	if (l > r)
+		printf("找不到输入数字，可能所查找的数组中没有此数。\n");
+	return 0;
+}
